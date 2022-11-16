@@ -1,10 +1,10 @@
-calculate_theta_and_variance_hats = function(M, complete_datasets, idx_of_coef_of_interest){
+calculate_theta_and_variance_hats = function(cal, M, complete_datasets, idx_of_coef_of_interest, call){
   theta_hats = c()
   variance_hats = c()
 
   for (m in 1:M){
     complete_dataset = complete_datasets[[toString(m)]]
-    lmm = fit_lmm(complete_dataset)
+    lmm = lmer(cal, complete_dataset)
     theta_hat = extract_inferential_statistics_from_lmm(lmm, idx_of_coef_of_interest)[["point-estimate"]]
     variance_hat = extract_inferential_statistics_from_lmm(lmm, idx_of_coef_of_interest)[["standard-error"]]^2
     theta_hats = append(theta_hats, theta_hat)
@@ -13,8 +13,8 @@ calculate_theta_and_variance_hats = function(M, complete_datasets, idx_of_coef_o
   return(list(theta_hats, variance_hats))
 }
 
-aggregate_results_using_Rubins_rules = function(M, complete_datasets, idx_of_coef_of_interest, null_value = 0, alpha = 0.05){
-  var_and_theta_hats =calculate_theta_and_variance_hats(M, complete_datasets, idx_of_coef_of_interest)
+aggregate_results_using_Rubins_rules = function(MAR_model, M, complete_datasets, idx_of_coef_of_interest, null_value = 0, alpha = 0.05){
+  var_and_theta_hats =calculate_theta_and_variance_hats(MAR_model@call[[2]], M, complete_datasets, idx_of_coef_of_interest)
   theta_hats = var_and_theta_hats[[1]]
   variance_hats = var_and_theta_hats[[2]]
 
