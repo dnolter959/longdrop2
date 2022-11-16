@@ -12,7 +12,7 @@ You can install the development version of longdrop2 like so:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("dnolter959/longdrop")
+devtools::install_github("dnolter959/longdrop2")
 ```
 
 ## Example
@@ -21,13 +21,11 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(longdrop2)
-
-MAR_model = fit_lmm(data)
-id_var = "uid"
-timepoints = c(0, 2, 4, 6, 8, 12, 16, 20)
+MAR_model = lmer(WHO5 ~ arm + week + arm*week + (1 + week | uid), data = data)
+time_var = "week"
 idx_of_coef_of_interest = 4
-K = c(0)
-M = 5
+K = c(-1, 0, 1)
+M = 20
 
-longdrop(MAR_model, id_var, timepoints, idx_of_coef_of_interest, K, M)
+longdrop(MAR_model, time_var, idx_of_coef_of_interest, K, M)
 ```
