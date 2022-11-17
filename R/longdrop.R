@@ -19,5 +19,12 @@ longdrop = function(MAR_model, time_var, idx_of_coef_of_interest, K, M=20){
     results_by_k[[toString(k)]] = aggregate_results_using_Rubins_rules(MAR_model, M, complete_datasets, idx_of_coef_of_interest)
   }
 
-  return(results_by_k)
+  out = list(
+    results = results_by_k,
+    call = match.call(),
+    args = list(model = MAR_model, time_var = time_var, idx = idx_of_coef_of_interest, K = K, M = M)
+  )
+
+  class(out) = "longdrop"
+  return(out)
 }
