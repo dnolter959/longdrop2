@@ -33,7 +33,7 @@ generate_complete_dataset_using_multiple_imputation = function(MAR_model, design
   epsilon = calculate_epsilon(N, trace_of_hat_matrix, sigma_hat_squared)
   imputed_values = design_X_full %*% Beta_m + Z %*% u + k*R + epsilon
 
-  full_dataset = generate_X_full_dataset(MAR_model, uids, timepoints, time_var, "dataframe")
+  full_dataset = generate_design_X_full(MAR_model, uids, timepoints, time_var, "dataframe")
   full_dataset$imputed_values = as.vector(imputed_values)
   return(full_dataset)
 }
