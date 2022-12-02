@@ -13,7 +13,7 @@ longdrop = function(MAR_model, time_var, idx_of_coef_of_interest, K, M=20){
     for (m in 1:M){
       Beta_m            = generate_random_Beta_m(uids, MAR_model)
       beta_i_ms         = generate_random_beta_i_ms(uids, MAR_model)
-      complete_dataset  = generate_complete_dataset_using_multiple_imputation(MAR_model, design_X_full, k, uids, timepoints, Beta_m, beta_i_ms)
+      complete_dataset  = generate_complete_dataset_using_multiple_imputation(MAR_model, design_X_full, k, uids, time_var, timepoints, Beta_m, beta_i_ms)
       complete_datasets[[toString(m)]] = complete_dataset
     }
     results_by_k[[toString(k)]] = aggregate_results_using_Rubins_rules(MAR_model, M, complete_datasets, idx_of_coef_of_interest)

@@ -20,7 +20,7 @@ construct_u = function(uids, beta_i_ms) {
   return(matrix(u))
 }
 
-generate_complete_dataset_using_multiple_imputation = function(MAR_model, design_X_full, k, uids, timepoints, Beta_m, beta_i_ms){
+generate_complete_dataset_using_multiple_imputation = function(MAR_model, design_X_full, k, uids, time_var, timepoints, Beta_m, beta_i_ms){
   q = length(unique(uids))
   trace_of_hat_matrix = sum(hatvalues(MAR_model))
   var_cor = as.data.frame(VarCorr(MAR_model))
@@ -33,18 +33,7 @@ generate_complete_dataset_using_multiple_imputation = function(MAR_model, design
   epsilon = calculate_epsilon(N, trace_of_hat_matrix, sigma_hat_squared)
   imputed_values = design_X_full %*% Beta_m + Z %*% u + k*R + epsilon
 
-  full_imputed_data = data.frame(
-    uid = as.numeric(as.character(sort(rep(uids, n)))),
-    arm = design_X_full[, 2],
-    week = design_X_full[, 3],
-    WHO5_imputed = as.vector(imputed_values)
-  )
-  colnames(full_imputed_data) = c("uid", "arm", "week", "WHO5_imputed")
-
-  complete_dataset = left_join(full_imputed_data, MAR_model@frame, by = c("uid", "week")) %>%
-    mutate(WHO5 = ifelse(is.na(WHO5), WHO5_imputed, WHO5)) %>%
-    dplyr::select(-WHO5_imputed, -arm.y) %>%
-    dplyr::rename(arm = arm.x) %>%
-    arrange(uid, week)
-  return(complete_dataset)
+  full_dataset = generate_X_full_dataset(MAR_model, uids, timepoints, time_var, "dataframe")
+  full_dataset$imputed_values = as.vector(imputed_values)
+  return(full_dataset)
 }
