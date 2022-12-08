@@ -7,7 +7,7 @@
 #'
 #' @examples
 plot.longdrop = function(longdrop){
-  k  = sort(as.numeric(keys(longdrop$results)))
+  k  = sort(as.numeric(hash::keys(longdrop$results)))
   extract_hash_val = function(k, val) {longdrop$results[[toString(k)]][[val]]}
 
   p  = unlist(lapply(k, extract_hash_val, "p-value"))
