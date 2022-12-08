@@ -53,7 +53,7 @@ aggregate_results_using_Rubins_rules = function(MAR_model, M, complete_datasets,
   variance_hat_star = W_hat + (1 + 1/M)*B_hat
 
   # Calculate CI
-  results = hash()
+  results = hash::hash()
   t_stat = (theta_hat_star - null_value)/sqrt(variance_hat_star)
   df = (M-1)*(1 + W_hat/((1 + 1/M)*B_hat))
   p_val = ifelse(t_stat >= 0, 2*(1-pt(t_stat, df)), 2*pt(t_stat, df))
