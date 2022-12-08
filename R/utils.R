@@ -36,16 +36,16 @@ generate_design_X_full = function(MAR_model, uids, timepoints, time_var, outcome
   names(id_time) = c(uid_var, time_var)
   id_time = id_time[order(id_time[,uid_var], id_time[,time_var]), ]
 
-  full_data = left_join(id_time, MAR_model@frame, by=c(uid_var, time_var))
+  full_data = dplyr::left_join(id_time, MAR_model@frame, by=c(uid_var, time_var))
   full_data$missing = ifelse(is.na(full_data[,outcome_var]), 1, 0)
-  full_data = full_data %>% group_by_at(uid_var) %>%
+  full_data = full_data %>% dplyr::group_by_at(uid_var) %>%
     fill(everything())
 
   if (type == "dataframe"){return(full_data)}
 
   # extract full design matrix
   tmp = model.matrix(as.formula(MAR_model@call), data = full_data)
-  full_mod = lmer(as.formula(MAR_model@call), data = full_data)
+  full_mod = lme4::lmer(as.formula(MAR_model@call), data = full_data)
   design_X_full_comp = model.matrix(full_mod)
 
   return(design_X_full_comp)

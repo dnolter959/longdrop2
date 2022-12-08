@@ -17,7 +17,7 @@ plot.longdrop = function(longdrop){
 
   plot_data = data.frame(k, p, pe, se, t)
 
-  ggplot(plot_data, aes(x = k, y = pe)) +
+  ggplot2::ggplot(plot_data, aes(x = k, y = pe)) +
     geom_line(color = "#F8766D") +
     geom_point(color = "#F8766D") +
     geom_ribbon(aes(

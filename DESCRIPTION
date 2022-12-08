@@ -16,6 +16,4 @@ Imports:
     ggplot2,
     hash,
     lme4,
-    magic,
-    MASS,
-    psych
+    MASS
