@@ -4,7 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of longdrop2 is to …
+The goal of longdrop2 is to:
 
 ## Installation
 
@@ -24,12 +24,10 @@ library(longdrop2)
 MAR_model = lmer(WHO5 ~ arm + week + arm*week + (1 + week | uid), data = data)
 time_var = "week"
 idx_of_coef_of_interest = 4
-K = c(-20, -15, -10, -3, -1, 0, 1, 3, 10, 15, 20)
-K = c(0)
+K = c(-1, 0, 1)
 M = 3
 
-longdrop = longdrop(MAR_model, time_var, idx_of_coef_of_interest, K, M)
-complete_datasets
+ld = longdrop(MAR_model, time_var, idx_of_coef_of_interest, K, M)
 ```
 
 ``` r
