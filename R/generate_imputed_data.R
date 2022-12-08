@@ -1,3 +1,13 @@
+#' Title
+#'
+#' @param N
+#' @param trace_of_hat_matrix
+#' @param sigma_hat_squared
+#'
+#' @return
+#' @export
+#'
+#' @examples
 calculate_epsilon = function(N, trace_of_hat_matrix, sigma_hat_squared){
   q = N - trace_of_hat_matrix
   random_chi_squared_q = rchisq(1, q)
@@ -6,12 +16,30 @@ calculate_epsilon = function(N, trace_of_hat_matrix, sigma_hat_squared){
   return(epsilon)
 }
 
+#' Title
+#'
+#' @param timepoints
+#' @param q
+#'
+#' @return
+#' @export
+#'
+#' @examples
 construct_Z = function(timepoints, q){
   block = matrix(c(rep(1, length(timepoints)), timepoints), ncol=2)
   Z = .bdiag(rep(list(block), q))
   return(Z)
 }
 
+#' Title
+#'
+#' @param uids
+#' @param beta_i_ms
+#'
+#' @return
+#' @export
+#'
+#' @examples
 construct_u = function(uids, beta_i_ms) {
   u = c()
   for (i in uids){
@@ -20,6 +48,22 @@ construct_u = function(uids, beta_i_ms) {
   return(matrix(u))
 }
 
+#' Title
+#'
+#' @param MAR_model
+#' @param design_X_full
+#' @param k
+#' @param uids
+#' @param time_var
+#' @param outcome_var
+#' @param timepoints
+#' @param Beta_m
+#' @param beta_i_ms
+#'
+#' @return
+#' @export
+#'
+#' @examples
 generate_complete_dataset_using_multiple_imputation = function(MAR_model, design_X_full, k, uids, time_var, outcome_var, timepoints, Beta_m, beta_i_ms){
   q = length(unique(uids))
   trace_of_hat_matrix = sum(hatvalues(MAR_model))

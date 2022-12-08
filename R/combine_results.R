@@ -1,3 +1,15 @@
+#' Title
+#'
+#' @param cal
+#' @param M
+#' @param complete_datasets
+#' @param idx_of_coef_of_interest
+#' @param call
+#'
+#' @return
+#' @export
+#'
+#' @examples
 calculate_theta_and_variance_hats = function(cal, M, complete_datasets, idx_of_coef_of_interest, call){
   theta_hats = c()
   variance_hats = c()
@@ -13,6 +25,19 @@ calculate_theta_and_variance_hats = function(cal, M, complete_datasets, idx_of_c
   return(list(theta_hats, variance_hats))
 }
 
+#' Title
+#'
+#' @param MAR_model
+#' @param M
+#' @param complete_datasets
+#' @param idx_of_coef_of_interest
+#' @param null_value
+#' @param alpha
+#'
+#' @return
+#' @export
+#'
+#' @examples
 aggregate_results_using_Rubins_rules = function(MAR_model, M, complete_datasets, idx_of_coef_of_interest, null_value = 0, alpha = 0.05){
   var_and_theta_hats =calculate_theta_and_variance_hats(MAR_model@call[[2]], M, complete_datasets, idx_of_coef_of_interest)
   theta_hats = var_and_theta_hats[[1]]

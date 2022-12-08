@@ -1,3 +1,15 @@
+#' Title
+#'
+#' @param MAR_model
+#' @param time_var
+#' @param idx_of_coef_of_interest
+#' @param K
+#' @param M
+#'
+#' @return
+#' @export
+#'
+#' @examples
 longdrop = function(MAR_model, time_var, idx_of_coef_of_interest, K, M=20){
   # Extract objects from model for use in imputation
   outcome_var = all.vars(as.formula(MAR_model@call))[1]

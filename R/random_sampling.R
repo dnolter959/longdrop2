@@ -1,3 +1,12 @@
+#' Title
+#'
+#' @param uids
+#' @param mod
+#'
+#' @return
+#' @export
+#'
+#' @examples
 generate_random_Beta_m = function(uids, mod){
   Beta_hat = mod@beta
   Vcov_hat = vcov(mod)
@@ -7,6 +16,15 @@ generate_random_Beta_m = function(uids, mod){
   return(matrix(Beta_m))
 }
 
+#' Title
+#'
+#' @param uids
+#' @param mod
+#'
+#' @return
+#' @export
+#'
+#' @examples
 generate_random_beta_i_ms = function(uids, mod){
   beta_i_hats = cbind(uids, ranef(mod)[[1]])
   vcov_beta_i = matrix(unclass(VarCorr(MAR_model))[[1]], 2, 2)

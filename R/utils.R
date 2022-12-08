@@ -1,3 +1,12 @@
+#' Title
+#'
+#' @param mod
+#' @param idx_of_coef_of_interest
+#'
+#' @return
+#' @export
+#'
+#' @examples
 extract_inferential_statistics_from_lmm = function(mod, idx_of_coef_of_interest){
   results_hash = hash::hash()
   results_hash[["point-estimate"]] = round(coef(summary(mod))[idx_of_coef_of_interest, 1], 3)
@@ -6,6 +15,19 @@ extract_inferential_statistics_from_lmm = function(mod, idx_of_coef_of_interest)
   return(results_hash)
 }
 
+#' Title
+#'
+#' @param MAR_model
+#' @param uids
+#' @param timepoints
+#' @param time_var
+#' @param outcome_var
+#' @param type
+#'
+#' @return
+#' @export
+#'
+#' @examples
 generate_design_X_full = function(MAR_model, uids, timepoints, time_var, outcome_var, type="matrix"){
   # generate fully expanded id-time
   uid_var = names(MAR_model@flist[1])

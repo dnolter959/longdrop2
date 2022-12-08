@@ -1,3 +1,11 @@
+#' Title
+#'
+#' @param longdrop
+#'
+#' @return
+#' @export
+#'
+#' @examples
 plot.longdrop = function(longdrop){
   k  = sort(as.numeric(keys(longdrop$results)))
   extract_hash_val = function(k, val) {longdrop$results[[toString(k)]][[val]]}
