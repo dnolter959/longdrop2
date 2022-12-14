@@ -39,7 +39,7 @@ generate_design_X_full = function(MAR_model, uids, timepoints, time_var, outcome
   full_data = dplyr::left_join(id_time, MAR_model@frame, by=c(uid_var, time_var))
   full_data$missing = ifelse(is.na(full_data[,outcome_var]), 1, 0)
   full_data = full_data %>% dplyr::group_by_at(uid_var) %>%
-    fill(everything())
+    tidyr::fill(everything(), .direction = "updown")
 
   if (type == "dataframe"){return(full_data)}
 

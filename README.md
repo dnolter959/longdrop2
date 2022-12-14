@@ -28,6 +28,7 @@ K = c(-1, 0, 1)
 M = 3
 
 ld = longdrop(MAR_model, time_var, idx_of_coef_of_interest, K, M)
+plot(ld)
 ```
 
 ``` r
