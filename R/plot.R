@@ -1,4 +1,4 @@
-#' Title
+#' Plot point estimates and CI by K using longdrop object
 #'
 #' @param longdrop
 #'

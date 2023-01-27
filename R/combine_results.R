@@ -1,4 +1,4 @@
-#' Title
+#' Calculate theta and variance hats
 #'
 #' @param cal
 #' @param M
@@ -25,7 +25,8 @@ calculate_theta_and_variance_hats = function(cal, M, complete_datasets, idx_of_c
   return(list(theta_hats, variance_hats))
 }
 
-#' Title
+#' Combine results using Rubin's rules
+#'
 #'
 #' @param MAR_model
 #' @param M

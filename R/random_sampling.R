@@ -1,4 +1,4 @@
-#' Title
+#' Draw random Beta M, for fixed effects
 #'
 #' @param uids
 #' @param mod
@@ -16,7 +16,7 @@ generate_random_Beta_m = function(uids, mod){
   return(matrix(Beta_m))
 }
 
-#' Title
+#' Draw random beta M, for random effects
 #'
 #' @param uids
 #' @param mod

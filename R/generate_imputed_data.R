@@ -1,4 +1,4 @@
-#' Title
+#' Calculate epsilon
 #'
 #' @param N
 #' @param trace_of_hat_matrix
@@ -16,7 +16,7 @@ calculate_epsilon = function(N, trace_of_hat_matrix, sigma_hat_squared){
   return(epsilon)
 }
 
-#' Title
+#' Construct Z
 #'
 #' @param timepoints
 #' @param q
@@ -31,7 +31,7 @@ construct_Z = function(timepoints, q){
   return(Z)
 }
 
-#' Title
+#' Construct U
 #'
 #' @param uids
 #' @param beta_i_ms
@@ -48,7 +48,7 @@ construct_u = function(uids, beta_i_ms) {
   return(matrix(u))
 }
 
-#' Title
+#' Generate complete imputed dataset
 #'
 #' @param MAR_model
 #' @param design_X_full

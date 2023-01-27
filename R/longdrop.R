@@ -1,4 +1,4 @@
-#' Title
+#' Performs MI, combines results, returns a longdrop object
 #'
 #' @param MAR_model
 #' @param time_var

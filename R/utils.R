@@ -1,4 +1,4 @@
-#' Title
+#' Extract point estimates and standard errors from model
 #'
 #' @param mod
 #' @param idx_of_coef_of_interest
@@ -15,7 +15,7 @@ extract_inferential_statistics_from_lmm = function(mod, idx_of_coef_of_interest)
   return(results_hash)
 }
 
-#' Title
+#' Generate full design matrix from model
 #'
 #' @param MAR_model
 #' @param uids
