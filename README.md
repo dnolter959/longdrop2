@@ -84,6 +84,8 @@ plot(ld)
 doesn’t differ much for different values of k, suggesting low
 sensitivity to departures from MAR in this case.
 
-**Developer Note:** s This package is not yet complete. I still need to
-add functionality for random intercepts (not random slopes), add tests
-and complete documentation.
+**Developer Note:**
+
+This package is not yet complete. I still need to add functionality for
+random intercepts (not random slopes), add tests and complete
+documentation.
