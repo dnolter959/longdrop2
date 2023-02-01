@@ -50,18 +50,6 @@ devtools::install_github("dnolter959/longdrop2")
 
 ## Example
 
-In this setting a user has a dataset called `data`.
-
-- They first fit a MAR model using the `lmer` function from the `lme4`
-  package
-- Then they specify the time variable, the index of the coefficient of
-  interest (in this case it is 4 because they are interested in the
-  coefficient on the interaction term, a set of k values to test, and M,
-  the number of random samples imputed)
-- The `longdrop` function returns a `hash` object with inferential
-  results for each value of k (point estimate, 95% CI, standard errors,
-  p-value)
-
 ``` r
 library(longdrop2)
 MAR_model = lmer(outcome ~ arm + week + arm*week + (1 + week | uid), data = data)
@@ -72,6 +60,21 @@ M = 20
 
 ld = longdrop(MAR_model, time_var, idx_of_coef_of_interest, K, M)
 ```
+
+In this setting a user has a dataset called `data`.
+
+- They first fit a MAR model using the `lmer` function from the `lme4`
+  package
+- Then they specify:
+  - The time variable,
+  - The index of the coefficient of interest (in this case it is 4
+    because the user is interested in the coefficient on the interaction
+    term)
+  - A set, K, of k values to test
+  - M, the number of random samples imputed)
+
+The `longdrop` function returns a `hash` object with inferential results
+for each value of k (point estimate, 95% CI, standard errors, p-value)
 
 If the user calls `plot` on the longdrop object, they can see a plot of
 the effect size of interest and associated confidence intervals for each
