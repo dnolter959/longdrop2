@@ -2,13 +2,13 @@
 % Please edit documentation in R/generate_imputed_data.R
 \name{construct_Z}
 \alias{construct_Z}
-\title{Title}
+\title{Construct Z}
 \usage{
-construct_Z(timepoints, q)
+construct_Z(timepoints, q, MAR_model)
 }
 \arguments{
 \item{q}{}
 }
 \description{
-Title
+Construct Z
 }

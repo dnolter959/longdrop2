@@ -2,7 +2,7 @@
 % Please edit documentation in R/combine_results.R
 \name{calculate_theta_and_variance_hats}
 \alias{calculate_theta_and_variance_hats}
-\title{Title}
+\title{Calculate theta and variance hats}
 \usage{
 calculate_theta_and_variance_hats(
   cal,
@@ -16,5 +16,5 @@ calculate_theta_and_variance_hats(
 \item{call}{}
 }
 \description{
-Title
+Calculate theta and variance hats
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/generate_imputed_data.R
 \name{construct_u}
 \alias{construct_u}
-\title{Title}
+\title{Construct U}
 \usage{
 construct_u(uids, beta_i_ms)
 }
@@ -10,5 +10,5 @@ construct_u(uids, beta_i_ms)
 \item{beta_i_ms}{}
 }
 \description{
-Title
+Construct U
 }

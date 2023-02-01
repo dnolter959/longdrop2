@@ -2,13 +2,24 @@
 % Please edit documentation in R/longdrop.R
 \name{longdrop}
 \alias{longdrop}
-\title{Title}
+\title{Performs MI, combines results, returns a longdrop object}
 \usage{
 longdrop(MAR_model, time_var, idx_of_coef_of_interest, K, M = 20)
 }
 \arguments{
-\item{M}{}
+\item{MAR_model}{An instance of class lmerMod from the package lme4 (fit using \code{lmer})}
+
+\item{time_var}{The time-related variable in the longitudinal dataset}
+
+\item{idx_of_coef_of_interest}{Index of the fixed effect coefficient of interest for analysis (corresponds to the variable order provided in the lmer call, or the \code{summary} of the model fixed effects)}
+
+\item{K}{A vector defining the set of affine offsets characterizing the distirbution of the missing outcomes (with respect to those observed)}
+
+\item{M}{The number of imputed datasets per value of K}
+}
+\value{
+A \code{hash} object with inferential statistics on the coefficient of interest for each value of k.
 }
 \description{
-Title
+Performs MI, combines results, returns a longdrop object
 }

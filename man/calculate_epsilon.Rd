@@ -2,7 +2,7 @@
 % Please edit documentation in R/generate_imputed_data.R
 \name{calculate_epsilon}
 \alias{calculate_epsilon}
-\title{Title}
+\title{Calculate epsilon}
 \usage{
 calculate_epsilon(N, trace_of_hat_matrix, sigma_hat_squared)
 }
@@ -10,5 +10,5 @@ calculate_epsilon(N, trace_of_hat_matrix, sigma_hat_squared)
 \item{sigma_hat_squared}{}
 }
 \description{
-Title
+Calculate epsilon
 }

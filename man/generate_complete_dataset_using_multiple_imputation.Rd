@@ -2,7 +2,7 @@
 % Please edit documentation in R/generate_imputed_data.R
 \name{generate_complete_dataset_using_multiple_imputation}
 \alias{generate_complete_dataset_using_multiple_imputation}
-\title{Title}
+\title{Generate complete imputed dataset}
 \usage{
 generate_complete_dataset_using_multiple_imputation(
   MAR_model,
@@ -20,5 +20,5 @@ generate_complete_dataset_using_multiple_imputation(
 \item{beta_i_ms}{}
 }
 \description{
-Title
+Generate complete imputed dataset
 }

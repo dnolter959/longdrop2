@@ -2,13 +2,16 @@
 % Please edit documentation in R/plot.R
 \name{plot.longdrop}
 \alias{plot.longdrop}
-\title{Title}
+\title{Plot point estimates and CI by K using longdrop object}
 \usage{
 \method{plot}{longdrop}(longdrop)
 }
 \arguments{
-\item{longdrop}{}
+\item{longdrop}{A \code{hash} object with inferential statistics on the coefficient of interest for each value of k}
+}
+\value{
+A \code{ggplot} object graphing point estimates and 95\% CI inferred on the paramter of interest for each value of k
 }
 \description{
-Title
+Plot point estimates and CI by K using longdrop object
 }

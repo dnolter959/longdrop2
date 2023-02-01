@@ -1,12 +1,12 @@
 #' Performs MI, combines results, returns a longdrop object
 #'
-#' @param MAR_model
-#' @param time_var
-#' @param idx_of_coef_of_interest
-#' @param K
-#' @param M
+#' @param MAR_model An instance of class lmerMod from the package lme4 (fit using `lmer`)
+#' @param time_var The time-related variable in the longitudinal dataset
+#' @param idx_of_coef_of_interest Index of the fixed effect coefficient of interest for analysis (corresponds to the variable order provided in the lmer call, or the `summary` of the model fixed effects)
+#' @param K A vector defining the set of affine offsets characterizing the distirbution of the missing outcomes (with respect to those observed)
+#' @param M The number of imputed datasets per value of K
 #'
-#' @return
+#' @return A `hash` object with inferential statistics on the coefficient of interest for each value of k.
 #' @export
 #'
 #' @examples

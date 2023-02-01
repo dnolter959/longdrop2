@@ -2,13 +2,18 @@
 % Please edit documentation in R/utils.R
 \name{extract_inferential_statistics_from_lmm}
 \alias{extract_inferential_statistics_from_lmm}
-\title{Title}
+\title{Extract point estimates and standard errors from model}
 \usage{
 extract_inferential_statistics_from_lmm(mod, idx_of_coef_of_interest)
 }
 \arguments{
-\item{idx_of_coef_of_interest}{}
+\item{mod}{An instance of class lmerMod from the package lme4 (fit using \code{lmer})}
+
+\item{idx_of_coef_of_interest}{Index of the fixed effect coefficient of interest for analysis (corresponds to the variable order provided in the lmer call, or the \code{summary} of the model fixed effects)}
+}
+\value{
+A \code{hash} object with inferential statistics on the coefficient of interest
 }
 \description{
-Title
+Extract point estimates and standard errors from model
 }

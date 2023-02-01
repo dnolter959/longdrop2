@@ -1,9 +1,9 @@
 #' Draw random Beta M, for fixed effects
 #'
-#' @param uids
-#' @param mod
+#' @param uids A vector of uids in the provided dataset
+#' @param mod An instance of class lmerMod from the package lme4 (fit using `lmer`)
 #'
-#' @return
+#' @return A random draw of Beta_m for use in multiple imputation
 #' @export
 #'
 #' @examples
@@ -18,10 +18,10 @@ generate_random_Beta_m = function(uids, mod){
 
 #' Draw random beta M, for random effects
 #'
-#' @param uids
-#' @param mod
+#' @param uids A vector of uids in the provided dataset
+#' @param mod An instance of class lmerMod from the package lme4 (fit using `lmer`)
 #'
-#' @return
+#' @return A hash containing random draws of random intercepts/slopes for each participant, for use in multiple imputation
 #' @export
 #'
 #' @examples

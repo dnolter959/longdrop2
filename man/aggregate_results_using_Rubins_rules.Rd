@@ -2,7 +2,7 @@
 % Please edit documentation in R/combine_results.R
 \name{aggregate_results_using_Rubins_rules}
 \alias{aggregate_results_using_Rubins_rules}
-\title{Title}
+\title{Combine results using Rubin's rules}
 \usage{
 aggregate_results_using_Rubins_rules(
   MAR_model,
@@ -17,5 +17,5 @@ aggregate_results_using_Rubins_rules(
 \item{alpha}{}
 }
 \description{
-Title
+Combine results using Rubin's rules
 }

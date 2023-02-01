@@ -2,13 +2,18 @@
 % Please edit documentation in R/random_sampling.R
 \name{generate_random_beta_i_ms}
 \alias{generate_random_beta_i_ms}
-\title{Title}
+\title{Draw random beta M, for random effects}
 \usage{
 generate_random_beta_i_ms(uids, mod)
 }
 \arguments{
-\item{mod}{}
+\item{uids}{A vector of uids in the provided dataset}
+
+\item{mod}{An instance of class lmerMod from the package lme4 (fit using \code{lmer})}
+}
+\value{
+A hash containing random draws of random intercepts/slopes for each participant, for use in multiple imputation
 }
 \description{
-Title
+Draw random beta M, for random effects
 }

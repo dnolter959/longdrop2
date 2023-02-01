@@ -1,9 +1,9 @@
 #' Extract point estimates and standard errors from model
 #'
-#' @param mod
-#' @param idx_of_coef_of_interest
+#' @param mod An instance of class lmerMod from the package lme4 (fit using `lmer`)
+#' @param idx_of_coef_of_interest Index of the fixed effect coefficient of interest for analysis (corresponds to the variable order provided in the lmer call, or the `summary` of the model fixed effects)
 #'
-#' @return
+#' @return A `hash` object with inferential statistics on the coefficient of interest
 #' @export
 #'
 #' @examples
@@ -17,14 +17,14 @@ extract_inferential_statistics_from_lmm = function(mod, idx_of_coef_of_interest)
 
 #' Generate full design matrix from model
 #'
-#' @param MAR_model
-#' @param uids
-#' @param timepoints
-#' @param time_var
-#' @param outcome_var
-#' @param type
+#' @param MAR_model An instance of class lmerMod from the package lme4 (fit using `lmer`)
+#' @param uids A vector of uids in the provided dataset
+#' @param timepoints A vector of timepoints in the provided dataset
+#' @param time_var The time-related variable in the longitudinal dataset
+#' @param outcome_var The outcome variable in the provided dataset
+#' @param type Specifies whether to return a data frame ("dataframe") or matrix
 #'
-#' @return
+#' @return Full design matrix (in a world of no missingness)
 #' @export
 #'
 #' @examples

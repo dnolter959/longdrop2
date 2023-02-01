@@ -1,8 +1,8 @@
 #' Plot point estimates and CI by K using longdrop object
 #'
-#' @param longdrop
+#' @param longdrop A `hash` object with inferential statistics on the coefficient of interest for each value of k
 #'
-#' @return
+#' @return A `ggplot` object graphing point estimates and 95% CI inferred on the paramter of interest for each value of k
 #' @export
 #'
 #' @examples
