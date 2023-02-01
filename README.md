@@ -25,17 +25,18 @@ data is MNAR or MAR; and so it is common to proceed to conduct a
 sensitivity analysis which assumes MNAR in a variety of ways, and
 compares these results to those assuming MAR.
 
-This package facilitates conducting by allowing a user specify
-departures from the MAR assumption by choosing multiple values of k,
-each of which characterizes the distributional differences between the
-observed and missing outcomes via an affine shift. Using these values of
-k, we perform multiple imputation many times (the user can specify this
-by passing an M parameter, the default is 20), and then combine results
-using Rubin’s rules as specified in the original Moreno-Betancur and
-Chavance paper linked above.
+This package facilitates conducting such sensitivity analyses by
+allowing a user specify departures from the MAR assumption by choosing
+multiple values of k, each of which characterizes the distributional
+differences between the observed and missing outcomes via an affine
+shift. Using these values of k, the package allows the user to perform
+multiple imputation many times (the user can specify this by passing an
+M parameter, the default is 20), and then combine results using Rubin’s
+rules as specified in the original Moreno-Betancur and Chavance paper
+linked above.
 
 The user can then plot results across many values of k (k=0 represents
-the MAR case) to observe sensitiivity of effects to deparates from the
+the MAR case) to observe sensitivity of effects to departures from the
 MAR assumption.
 
 ## Installation
@@ -54,7 +55,7 @@ In this setting a user has a dataset called `data`.
 - They first fit a MAR model using the `lmer` function from the `lme4`
   package
 - Then they specify the time variable, the index of the coefficient of
-  interest (in this case it is 4 because they are intersted in the
+  interest (in this case it is 4 because they are interested in the
   coefficient on the interaction term, a set of k values to test, and M,
   the number of random samples imputed)
 - The `longdrop` function returns a `hash` object with inferential
