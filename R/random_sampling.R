@@ -27,10 +27,20 @@ generate_random_Beta_m = function(uids, mod){
 #' @examples
 generate_random_beta_i_ms = function(uids, mod){
   beta_i_hats = cbind(uids, ranef(mod)[[1]])
-  vcov_beta_i = matrix(unclass(VarCorr(MAR_model))[[1]], 2, 2)
+  idx = dim(beta_i_hats)[2]
+
+  # Random intercepts and slopes
+  if (idx == 3) {
+    vcov_beta_i = matrix(unclass(VarCorr(MAR_model))[[1]], 2, 2)
+  }
+  # Random intercepts only
+  else if (idx == 2) {
+    vcov_beta_i = as.numeric(unclass(VarCorr(MAR_model))[[1]])
+  }
+
   beta_i_ms = hash::hash()
   for (uid in uids) {
-    beta_i_hat = as.numeric(beta_i_hats[which(uids == uid), 2:3])
+    beta_i_hat = as.numeric(beta_i_hats[which(uids == uid), 2:idx])
     beta_i_m = MASS::mvrnorm(1, beta_i_hat, vcov_beta_i)
     beta_i_ms[[toString(uid)]] = beta_i_m
   }
