@@ -25,8 +25,18 @@ calculate_epsilon = function(N, trace_of_hat_matrix, sigma_hat_squared){
 #' @export
 #'
 #' @examples
-construct_Z = function(timepoints, q){
-  block = matrix(c(rep(1, length(timepoints)), timepoints), ncol=2)
+construct_Z = function(timepoints, q, MAR_model){
+  ranefidx = dim(ranef(MAR_model)[[1]])[2]
+
+  # Random Intercepts and Slopes
+  if (ranefidx == 2) {
+    block = matrix(c(rep(1, length(timepoints)), timepoints), ncol=2)
+  }
+  # Random Intercepts Only
+  else if (ranefidx == 1) {
+    block = matrix(c(rep(1, length(timepoints))), ncol=1)
+  }
+
   Z = .bdiag(rep(list(block), q))
   return(Z)
 }
@@ -71,7 +81,7 @@ generate_complete_dataset_using_multiple_imputation = function(MAR_model, design
   sigma_hat_squared = var_cor[nrow(var_cor), ncol(var_cor)]^2
   n = length(timepoints)
   N = q*n
-  Z = construct_Z(timepoints, q)
+  Z = construct_Z(timepoints, q, MAR_model)
   u = construct_u(uids, beta_i_ms)
   R = rep(1, n*q)
   epsilon = calculate_epsilon(N, trace_of_hat_matrix, sigma_hat_squared)
