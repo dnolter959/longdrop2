@@ -64,7 +64,7 @@ In this setting a user has a dataset called `data`.
 
 ``` r
 library(longdrop2)
-MAR_model = lmer(outcome ~ arm + week + arm*week + (1 | uid), data = data)
+MAR_model = lmer(outcome ~ arm + week + arm*week + (1 + week | uid), data = data)
 time_var = "week"
 idx_of_coef_of_interest = 4
 K = c(-20, -15, -10, 3, 2, 1, 0, 1, 2, 3, 10, 15, 20)
@@ -84,9 +84,3 @@ plot(ld)
 ![](man/figures/effect-by-k.png) In this case, the treatment effect
 doesn’t differ much for different values of k, suggesting low
 sensitivity to departures from MAR in this case.
-
-**Developer Note:**
-
-This package is not yet complete. I still need to add functionality for
-random intercepts (not random slopes), add tests and complete
-documentation.
