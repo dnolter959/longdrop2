@@ -26,13 +26,12 @@ sensitivity analysis which assumes MNAR in a variety of ways, and
 compares these results to those assuming MAR.
 
 This package facilitates conducting such sensitivity analyses by
-allowing a user specify departures from the MAR assumption by choosing
+allowing a user to specify departures from the MAR assumption by choosing
 multiple values of k, each of which characterizes the distributional
 differences between the observed and missing outcomes via an affine
-shift. Using these values of k, the package allows the user to perform
-multiple imputation many times (the user can specify this by passing an
-M parameter, the default is 20), and then combine results using Rubin’s
-rules as specified in the original Moreno-Betancur and Chavance paper
+shift. For each value of k, the package uses multiple imputation (M defaults to 20) to make 
+corresponding random draws of the longitudinal outcomes; results are then combined 
+using Rubin’s rules as specified in the original Moreno-Betancur and Chavance paper
 linked above.
 
 The user can then plot results across many values of k (k=0 represents
